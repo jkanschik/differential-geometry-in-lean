@@ -1,61 +1,9 @@
 Manifolds in Mathlb
 ===================
 
-We will discuss how manifolds can be described in Mathlib. To do this, let's dive straight in and define a manifold `M` in Mathlib. Don't worry, we will break down the various variables and type classes:
-
-Math
-====
-
-This is a test. Here is an equation:
-:math:`X_{0:5} = (X_0, X_1, X_2, X_3, X_4)`.
-Here is another:
-
-.. math::
-    :label: This is a label
-
-    \nabla^2 f =
-    \frac{1}{r^2} \frac{\partial}{\partial r}
-    \left( r^2 \frac{\partial f}{\partial r} \right) +
-    \frac{1}{r^2 \sin \theta} \frac{\partial f}{\partial \theta}
-    \left( \sin \theta \, \frac{\partial f}{\partial \theta} \right) +
-    \frac{1}{r^2 \sin^2\theta} \frac{\partial^2 f}{\partial \phi^2}
-
-You can add a link to equations like the one above :eq:`This is a label` by using
-``:eq:``.
-
-
-Since Pythagoras, we know that :math:`a^2 + b^2 = c^2`.
-
-
-
-
-Coercion to type
-----------------
-
-A subset of the reals is a term, not a type. The type is ``Set ℝ`` of *all* subsets of the reals,
-so here ``s : Set ℝ`` is a term, not a type, and so ``a : s`` shouldn't even make sense. But if
-you look carefully, you see that the type of ``a`` is in fact ``↑s``, because ``s`` has been
-coerced from a term to the corresponding subtype ``{x : ℝ // x ∈ s}``.
-
-.. code-block::
-
-   import Mathlib.Tactic
-
-   example (s : Set ℝ) (a : s) : a = a := by
-     /-
-     s : Set ℝ
-     a : ↑s
-     ⊢ a = a
-     -/
-     rfl
-
-A term of the subtype ``{x : ℝ // x ∈ s}`` is a pair consisting of a term ``x : ℝ`` and a proof
-that ``x ∈ s``.
-
-
-
-
-
+We will discuss how manifolds can be described in Mathlib.
+To do this, let's dive straight in and define a manifold ``M`` in Mathlib.
+Don't worry, we will break down the various variables and type classes:
 
 .. code-block::
 
@@ -72,13 +20,11 @@ that ``x ∈ s``.
 
 Let's go through the different variables that are defined here:
 
-* `(n : WithTop ℕ∞)`
+``(n : WithTop ℕ∞)``
+  is the a smoothness parameter. It can vary from `n = 0` for a topological manifold, i.e. no differentiable structure to `n = ∞` for a smooth manifold and `n = ω` for an analytic manifold.
 
-is the a smoothness parameter. It can vary from `n = 0` for a topological manifold, i.e. no differentiable structure to `n = ∞` for a smooth manifold and `n = ω` for an analytic manifold.
-
-* `{𝕜 : Type*} [NontriviallyNormedField 𝕜]`
-
-is the field over which we work, i.e. the real or complex numbers. All statements about manifolds should work with an arbitrary nontrivial, normed field as long as possible since most concepts can be used for the reals and complex numbers.
+``{𝕜 : Type*} [NontriviallyNormedField 𝕜]``
+  is the field over which we work, i.e. the real or complex numbers. All statements about manifolds should work with an arbitrary nontrivial, normed field as long as possible since most concepts can be used for the reals and complex numbers.
 
 * `{H : Type*} [TopologicalSpace H]`
 
