@@ -1,34 +1,17 @@
-######################
-Manifolds in Mathlb (Parts)
-######################
-
-
-****************************
-Chapters
-****************************
-
-Section
+Manifolds in Mathlb
 ===============
-
-Subsection
------------
-
-SubSubSection
-^^^^^^^^^^^^^^
-
-Paragraph
-""""""""""""
-
-
-
 
 We will discuss how manifolds can be described in Mathlib. To do this, let's dive straight in and define a manifold `M` in Mathlib. Don't worry, we will break down the various variables and type classes:
 
 .. math:: e^{i\pi} + 1 = 0
    :label: euler
+   e^{i\pi} + 1 = 0
 
 Euler's identity, equation :math:numref:`euler`, was elected one of the
 most beautiful mathematical formulas.
+
+
+Since Pythagoras, we know that :math:`a^2 + b^2 = c^2`.
 
 
 
@@ -60,20 +43,23 @@ that ``x ∈ s``.
 
 
 
+
+
 .. code-block::
 
-   import Mathlib.Geometry.Manifold.IsManifold.Basic
+  import Mathlib.Geometry.Manifold.IsManifold.Basic
 
-   variable
-     (n : WithTop ℕ∞)
-     {𝕜 : Type*} [NontriviallyNormedField 𝕜]
-     {H : Type*} [TopologicalSpace H]
-     {E : Type*} [NormedAddCommGroup E] [NormedSpace 𝕜 E]
-     {I : ModelWithCorners 𝕜 E H}
-     {M : Type*} [TopologicalSpace M] [ChartedSpace H M] [IsManifold I n M] [CompleteSpace E]
+  variable
+    (n : WithTop ℕ∞)
+    {𝕜 : Type*} [NontriviallyNormedField 𝕜]
+    {H : Type*} [TopologicalSpace H]
+    {E : Type*} [NormedAddCommGroup E] [NormedSpace 𝕜 E]
+    {I : ModelWithCorners 𝕜 E H}
+    {M : Type*} [TopologicalSpace M] [ChartedSpace H M] [IsManifold I n M] [CompleteSpace E]
 
 
 Let's go through the different variables that are defined here:
+
 * `(n : WithTop ℕ∞)`
 is the a smoothness parameter. It can vary from `n = 0` for a topological manifold, i.e. no differentiable structure to `n = ∞` for a smooth manifold and `n = ω` for an analytic manifold.
 
