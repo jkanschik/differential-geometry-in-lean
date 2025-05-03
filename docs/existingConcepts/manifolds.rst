@@ -34,27 +34,27 @@ Let's go through the different variables that are defined here:
 
 ``{M : Type*} [TopologicalSpace M] [ChartedSpace H M] [IsManifold I n M]``
   To start with, ``M`` is a
-  `TopologicalSpace <https://leanprover-community.github.io/mathlib4_docs/Mathlib/Topology/Defs/Basic.html#TopologicalSpace>`_
+  `TopologicalSpace <https://leanprover-community.github.io/mathlib4_docs/Mathlib/Topology/Defs/Basic.html#TopologicalSpace>`_,
+  which means we have a proper topology.
 
-
-  ``TopologicalSpace <https://leanprover-community.github.io/mathlib4_docs/Mathlib/Topology/Defs/Basic.html#TopologicalSpace>``_
-
-
-   [`TopologicalSpace`](https://leanprover-community.github.io/mathlib4_docs/Mathlib/Topology/Defs/Basic.html#TopologicalSpace), which means we have a proper topology.
-
-  The type class `ChartedSpace` defines an atlas on the topological space,
-  i.e. a set of homoemorphisms from `M` to the model space such that the domains cover the whole space.
-  This doesn't define a manifold structure yet. To do so, we need the type class `IsManifold`,
+  The type class ``ChartedSpace`` defines an atlas on the topological space,
+  i.e. a set of homoemorphisms from ``M`` to the model space such that the domains cover the whole space.
+  This doesn't define a manifold structure yet. To do so, we need the type class ``IsManifold``,
   which states that the coordinate transformations of the charted space form a groupoid of differentiable maps.
 
 
-When working with several manifolds at the time, it's best to call them `M`, `M'`, or `M''` or use subscripts `M₁`, `M₂`, etc. and use the same convention for the underlying objects like `I`, `I'` and so on. Otherwise it's easy to loose track of the dependencies, causing errors.
+When working with several manifolds at the time, it's best to call them ``M``, ``M'``, or ``M''`` or use subscripts ``M₁``, ``M₂``, etc.
+and use the same convention for the underlying objects like ``I``, ``I'`` and so on. Otherwise it's easy to loose track of the dependencies, causing errors.
 
-## The tangent space of manifolds
 
-Based on the differentiable structure given by `IsManifold`, we can define the tangent bundle of `M`.
+The tangent space of manifolds
+--------------------------------
 
-## Maps between manifolds
+Based on the differentiable structure given by ``IsManifold``, we can define the tangent bundle of ``M``.
+
+
+Maps between manifolds
+---------------------------
 
 We now consider differentiable maps between manifolds. There are two parts in Mathlib that deal with differentiability of functions: [`MFDeriv`](https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/MFDeriv/Defs.html), which defines the Fréchet derivative of functions and [`ContMDiff`](https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/ContMDiff/Defs.html).
 
