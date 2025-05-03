@@ -33,7 +33,8 @@ Let's go through the different variables that are defined here:
 ``{I : ModelWithCorners 𝕜 E H}``
 
 ``{M : Type*} [TopologicalSpace M] [ChartedSpace H M] [IsManifold I n M]``
-  To start with, ``M`` is a ` TopologicalSpace <https://leanprover-community.github.io/mathlib4_docs/Mathlib/Topology/Defs/Basic.html#TopologicalSpace>_`
+  To start with, ``M`` is a
+  `TopologicalSpace <https://leanprover-community.github.io/mathlib4_docs/Mathlib/Topology/Defs/Basic.html#TopologicalSpace>_`
 
 
    [`TopologicalSpace`](https://leanprover-community.github.io/mathlib4_docs/Mathlib/Topology/Defs/Basic.html#TopologicalSpace), which means we have a proper topology.
