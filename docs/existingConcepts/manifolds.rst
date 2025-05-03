@@ -1,5 +1,5 @@
 Manifolds in Mathlb
-===============
+===================
 
 We will discuss how manifolds can be described in Mathlib. To do this, let's dive straight in and define a manifold `M` in Mathlib. Don't worry, we will break down the various variables and type classes:
 
@@ -23,6 +23,8 @@ Here is another:
 You can add a link to equations like the one above :eq:`This is a label` by using
 ``:eq:``.
 
+
+Since Pythagoras, we know that :math:`a^2 + b^2 = c^2`.
 
 
 
@@ -71,9 +73,11 @@ that ``x ∈ s``.
 Let's go through the different variables that are defined here:
 
 * `(n : WithTop ℕ∞)`
+
 is the a smoothness parameter. It can vary from `n = 0` for a topological manifold, i.e. no differentiable structure to `n = ∞` for a smooth manifold and `n = ω` for an analytic manifold.
 
 * `{𝕜 : Type*} [NontriviallyNormedField 𝕜]`
+
 is the field over which we work, i.e. the real or complex numbers. All statements about manifolds should work with an arbitrary nontrivial, normed field as long as possible since most concepts can be used for the reals and complex numbers.
 
 * `{H : Type*} [TopologicalSpace H]`
@@ -83,6 +87,7 @@ is the field over which we work, i.e. the real or complex numbers. All statement
 * `{I : ModelWithCorners 𝕜 E H}`
 
 * `{M : Type*} [TopologicalSpace M] [ChartedSpace H M] [IsManifold I n M] [CompleteSpace E]`
+
 To start with, `M` is a [`TopologicalSpace`](https://leanprover-community.github.io/mathlib4_docs/Mathlib/Topology/Defs/Basic.html#TopologicalSpace), which means we have a proper topology.
 The type class `ChartedSpace` defines an atlas on the topological space, i.e. a set of homoemorphisms from `M` to the model space such that the domains cover the whole space. This doesn't define a manifold structure yet. To do so, we need the type class `IsManifold`, which states that the coordinate transformations of the charted space form a groupoid of differentiable maps.
 
