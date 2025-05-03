@@ -30,9 +30,7 @@ html_static_path = ['_static']
 # -- Options for LaTeX output ---------------------------------------------
 
 latex_engine = 'xelatex'
-
 latex_additional_files = ['unixode.sty']
-
 latex_elements = {
     # The paper size ('letterpaper' or 'a4paper').
     #
@@ -57,3 +55,9 @@ latex_elements = {
     #
     # 'figure_align': 'htbp',
 }
+
+# -- Extension (mermaid) ---------------------------------------------------
+
+extensions = [
+    'sphinxmermaid'
+]

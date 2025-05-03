@@ -106,6 +106,7 @@ Please note that the Fréchet derivative is only the first derivative. Since :ma
 Similar to `ContMDiff`, the propositions for the Fréchet derivative come in different variations:
 
 
+
 API to check whether a function is differentiable
 --------------------------------------------------
 
