@@ -81,8 +81,8 @@ We first consider `ContMDiff`: a function between two manifolds is differentiabl
 The space of all differentiable functions
 ---------------------------------------------
 
-In file [ContMDiffMap](https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/ContMDiffMap.html#ContMDiffMap), the space of all differentiable functions  ``f: M → N`` with smoothness parameter ``n`` is introduced as
-``ContMDiffMap I I' M M' n <https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/ContMDiffMap.html#ContMDiffMap>``_.
+In file ``ContMDiffMap <https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/ContMDiffMap.html#ContMDiffMap>``_ , the space of all differentiable functions  ``f: M → N`` with smoothness parameter ``n`` is introduced as
+`ContMDiffMap I I' M M' n <https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/ContMDiffMap.html#ContMDiffMap>`_ .
 As a shorter notation, we can use ``C^n⟮I, M; I', N⟯`` and for functions with values in `𝕜` we can write `C^n⟮I, M; 𝕜⟯`.
 
 The same file also proofs that certain standard functions are in `C^n⟮I, M; I', N⟯` and `C^n⟮I, M; 𝕜⟯`, namely:
