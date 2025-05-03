@@ -87,11 +87,11 @@ As a shorter notation, we can use ``C^n⟮I, M; I', N⟯`` and for functions wit
 
 The same file also proofs that certain standard functions are in `C^n⟮I, M; I', N⟯` and `C^n⟮I, M; 𝕜⟯`, namely:
 
-* the identity on a manifold ``ContMDiffMap.id : C^n⟮I, M; I, M⟯``
-* the constant function from a manifold to ``𝕜`` : ``ContMDiffMap.const : C^n⟮I, M; 𝕜⟯``
+* the identity on a manifold: ``ContMDiffMap.id : C^n⟮I, M; I, M⟯``
+* the constant function from a manifold to ``𝕜``: ``ContMDiffMap.const : C^n⟮I, M; 𝕜⟯``
   * the composition of two functions (as differentiable functions): ``ContMDiffMap.comp``
 * the projections from a product of manifolds to the first and second factor: ``ContMDiffMap.fst : C^n⟮I', M × M'; I, M⟯`` and ``ContMDiffMap.fst : C^n⟮I', M × M'; I, M⟯``
-* the product ``x ↦ (f x, g x)`` of two functions: ``ContMDiffMap.prodMk :  C^n⟮I', M × M'; I, M⟯```
+* the cartesian product ``x ↦ (f x, g x)`` of two functions: ``ContMDiffMap.prodMk :  C^n⟮I', M × M'; I, M⟯```
 
 
 
@@ -99,7 +99,7 @@ The same file also proofs that certain standard functions are in `C^n⟮I, M; I'
 The Fréchet derivative
 --------------------------
 
-The Fréchet derivative is the derivative of a differentiable function at a point as a linear map between the tangent spaces of the two manifolds. Given a function `f: M → N`, the Fréchet derivative `f'` at a point `x` is a linear map `f': T_xM → T_xN`.
+The Fréchet derivative is the derivative of a differentiable function at a point as a linear map between the tangent spaces of the two manifolds. Given a function `f: M → N`, the Fréchet derivative `f'` at a point `x` is a linear map :math:`f': T_xM → T_xN`.
 
 Please note that the Fréchet derivative is only the first derivative. Since `f': TM → TM'` is a map between the two tangent bundles and not the original manifolds, The second derivative `f''` would be a map between the tangent bundles of the tangent bundles and so on. When we do calculus on vector spaces, this is not a problem, because we identify the tangent space at a point with the vector space itself. However, because the tangent bundle is usually not trivial, this is not possible on manifolds. To have a notion of higher order derivatives, we will introduce [linear connections](connections.html).
 
