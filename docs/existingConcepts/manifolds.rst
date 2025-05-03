@@ -99,9 +99,9 @@ The same file also proofs that certain standard functions are in `C^n⟮I, M; I'
 The Fréchet derivative
 --------------------------
 
-The Fréchet derivative is the derivative of a differentiable function at a point as a linear map between the tangent spaces of the two manifolds. Given a function `f: M → N`, the Fréchet derivative `f'` at a point `x` is a linear map :math:`f': T_xM → T_xN`.
+The Fréchet derivative is the derivative of a differentiable function at a point as a linear map between the tangent spaces of the two manifolds. Given a function :math:`f: M \to N`, the Fréchet derivative `f'` at a point `x` is a linear map :math:`f': T_xM → T_xN`.
 
-Please note that the Fréchet derivative is only the first derivative. Since `f': TM → TM'` is a map between the two tangent bundles and not the original manifolds, The second derivative `f''` would be a map between the tangent bundles of the tangent bundles and so on. When we do calculus on vector spaces, this is not a problem, because we identify the tangent space at a point with the vector space itself. However, because the tangent bundle is usually not trivial, this is not possible on manifolds. To have a notion of higher order derivatives, we will introduce [linear connections](connections.html).
+Please note that the Fréchet derivative is only the first derivative. Since :math:`f': TM \to TM'` is a map between the two tangent bundles and not the original manifolds, The second derivative `f''` would be a map between the tangent bundles of the tangent bundles and so on. When we do calculus on vector spaces, this is not a problem, because we identify the tangent space at a point with the vector space itself. However, because the tangent bundle is usually not trivial, this is not possible on manifolds. To have a notion of higher order derivatives, we will introduce [linear connections](connections.html).
 
 Similar to `ContMDiff`, the propositions for the Fréchet derivative come in different variations:
 
