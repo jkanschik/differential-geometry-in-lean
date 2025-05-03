@@ -4,20 +4,25 @@ Manifolds in Mathlb
 
 We will discuss how manifolds can be described in Mathlib. To do this, let's dive straight in and define a manifold `M` in Mathlib. Don't worry, we will break down the various variables and type classes:
 
-```
-import Mathlib.Geometry.Manifold.IsManifold.Basic
+.. math:: e^{i\pi} + 1 = 0
+   :label: euler
 
-variable
-  (n : WithTop ℕ∞)
-  {𝕜 : Type*} [NontriviallyNormedField 𝕜]
-  {H : Type*} [TopologicalSpace H]
-  {E : Type*} [NormedAddCommGroup E] [NormedSpace 𝕜 E]
-  {I : ModelWithCorners 𝕜 E H}
-  {M : Type*} [TopologicalSpace M] [ChartedSpace H M] [IsManifold I n M] [CompleteSpace E]
+Euler's identity, equation :math:numref:`euler`, was elected one of the
+most beautiful mathematical formulas.
 
-#check M
-```
-[Open in Lean 4 Web](https://live.lean-lang.org/#codez=JYWwDg9gTgLgBAWQIYwBYBtgCMB0BxAUwhAJigE8dkA7YAMwnQBMcBJAZxvsZYCEl2wAMYAoEQDckUYEizoCIuHAAU1OAC44AdWBoAKhDBxAqISA8IgCUiuAG9ArBuAdXY1w95MAQBUAXzgBtAHIQ1GTA4jLo6OQBUCRMAGLABMxwDgC6VtYAEk4ubl6+BpDoEADmwkjoAMpgSEIEcBlpStYAotmuHt7+0DEAgkxMAMLEIHhQEACuRs0pvlExVTV1DnDT6axOCBBMiTpoQ1DUBFDsyY6tGZ7pCG25nQWMJWWV1bWIMz4DqFIwBEwLr1kEO8OFwGEl1mogb4huB5D9/nVViIAMRCVAEIQAa0QIiAA)
+
+
+.. code-block::
+   import Mathlib.Geometry.Manifold.IsManifold.Basic
+
+   variable
+     (n : WithTop ℕ∞)
+     {𝕜 : Type*} [NontriviallyNormedField 𝕜]
+     {H : Type*} [TopologicalSpace H]
+     {E : Type*} [NormedAddCommGroup E] [NormedSpace 𝕜 E]
+     {I : ModelWithCorners 𝕜 E H}
+     {M : Type*} [TopologicalSpace M] [ChartedSpace H M] [IsManifold I n M] [CompleteSpace E]
+
 
 Let's go through the different variables that are defined here:
 * `(n : WithTop ℕ∞)`
