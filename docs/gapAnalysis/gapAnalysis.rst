@@ -4,22 +4,35 @@ A Gap Analyis for Riemannian Geometry
 To make any statements about (Pseudo-)Riemannian Geometry, many structures and propositions need to be established in Mathlib. On this page we give an opinionated overview about topics which often occur in Riemannian Geometry.
 
 A few things to note:
+
 * The analysis focuses on real manifolds, though most statements can be made over a general `NontriviallyNormedField`.
+
 * Some parts may not work for Pseudo-Riemannian geometries.
+
 * The description is not mathematically precise, it should just give an idea of the topic.
+
 * Many interesting topics are missing - but we have to start somewhere.
 
 ## Curves and submanifolds
 
 Typical constructions for curves and submanifolds are:
+
 1. Differential curves vs. piece-wise differential curves
+
 1. Length of curves (requires metric)
+
 1. Differentiation along curves ("velocity")
+
 1. Immersions of submanifolds, i.e. smooth maps `N -> M` where the derivative has maximal rank / is injective
+
 1. Construction of vector fields along curves and immersions, for example:
+
     1. normal vector fields (requires metric)
+
     1. projection onto the tangent space of `N` (requires metric)
+
     1. parallel vector fields along `N` (requires connection)
+
 1. Variations of curves, especially geodesics; variations per se are simply immersions of `[0, 1] x [0, 1]` or similar. For geodesic variations, metric and connection is required
 
 ## Vector bundles and tensor bundles
