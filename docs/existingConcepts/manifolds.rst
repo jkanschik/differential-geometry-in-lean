@@ -1,5 +1,8 @@
-Manifolds in Mathlb
+Manifolds in Mathlib
 ===================
+
+The Definition of a manifold
+-----------------------------
 
 We will discuss how manifolds can be described in Mathlib.
 To do this, let's dive straight in and define a manifold ``M`` in Mathlib.
@@ -73,21 +76,28 @@ We first consider `ContMDiff`: a function between two manifolds is differentiabl
 [ContMDiff](https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/ContMDiff/Defs.html#ContMDiff)
 : `ContMDiff I I' n f` is the proposition that the function `f: M → N` is `n`-times differentiable at all points in `M`. Again, this is based on `ContMDiffAt` as `∀ (x : M), ContMDiffAt I I' n f x` and hence proven by `ContMDiffWithinAt`.
 
-### The space of all differentiable functions
 
-In file [ContMDiffMap](https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/ContMDiffMap.html#ContMDiffMap), the space of all differentiable functions  `f: M → N` with smoothness parameter `n` is introduced as [`ContMDiffMap I I' M M' n`](https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/ContMDiffMap.html#ContMDiffMap).
-As a shorter notation, we can use `C^n⟮I, M; I', N⟯` and for functions with values in `𝕜` we can write `C^n⟮I, M; 𝕜⟯`.
+
+The space of all differentiable functions
+---------------------------------------------
+
+In file [ContMDiffMap](https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/ContMDiffMap.html#ContMDiffMap), the space of all differentiable functions  ``f: M → N`` with smoothness parameter ``n`` is introduced as
+``ContMDiffMap I I' M M' n <https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/ContMDiffMap.html#ContMDiffMap>``_.
+As a shorter notation, we can use ``C^n⟮I, M; I', N⟯`` and for functions with values in `𝕜` we can write `C^n⟮I, M; 𝕜⟯`.
 
 The same file also proofs that certain standard functions are in `C^n⟮I, M; I', N⟯` and `C^n⟮I, M; 𝕜⟯`, namely:
 
-* the identity on a manifold `ContMDiffMap.id : C^n⟮I, M; I, M⟯`
-* the constant function from a manifold to `𝕜` : `ContMDiffMap.const : C^n⟮I, M; 𝕜⟯`
-* the composition of two functions (as differentiable functions): `ContMDiffMap.comp`
-* the projections from a product of manifolds to the first and second factor: `ContMDiffMap.fst : C^n⟮I', M × M'; I, M⟯` and `ContMDiffMap.fst : C^n⟮I', M × M'; I, M⟯`
-* the product `x ↦ (f x, g x)` of two functions: `ContMDiffMap.prodMk :  C^n⟮I', M × M'; I, M⟯`
+* the identity on a manifold ``ContMDiffMap.id : C^n⟮I, M; I, M⟯``
+* the constant function from a manifold to ``𝕜`` : ``ContMDiffMap.const : C^n⟮I, M; 𝕜⟯``
+  * the composition of two functions (as differentiable functions): ``ContMDiffMap.comp``
+* the projections from a product of manifolds to the first and second factor: ``ContMDiffMap.fst : C^n⟮I', M × M'; I, M⟯`` and ``ContMDiffMap.fst : C^n⟮I', M × M'; I, M⟯``
+* the product ``x ↦ (f x, g x)`` of two functions: ``ContMDiffMap.prodMk :  C^n⟮I', M × M'; I, M⟯```
 
 
-### The Fréchet derivative
+
+
+The Fréchet derivative
+--------------------------
 
 The Fréchet derivative is the derivative of a differentiable function at a point as a linear map between the tangent spaces of the two manifolds. Given a function `f: M → N`, the Fréchet derivative `f'` at a point `x` is a linear map `f': T_xM → T_xN`.
 
@@ -95,7 +105,9 @@ Please note that the Fréchet derivative is only the first derivative. Since `f'
 
 Similar to `ContMDiff`, the propositions for the Fréchet derivative come in different variations:
 
-#### API to check whether a function is differentiable
+
+API to check whether a function is differentiable
+--------------------------------------------------
 
 [MDifferentiableWithinAt](https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/MFDeriv/Defs.html#MDifferentiableWithinAt)
 : MDifferentiableWithinAt I I' f s x indicates that the function f between manifolds has a derivative at the point x within the set s.
