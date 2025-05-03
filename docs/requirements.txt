@@ -1,3 +1,4 @@
 insegel
 sphinx-rtd-theme
 karma-sphinx-theme
+sphinx-book-theme
