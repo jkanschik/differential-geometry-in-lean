@@ -12,7 +12,36 @@ most beautiful mathematical formulas.
 
 
 
+
+
+Coercion to type
+----------------
+
+A subset of the reals is a term, not a type. The type is ``Set ℝ`` of *all* subsets of the reals,
+so here ``s : Set ℝ`` is a term, not a type, and so ``a : s`` shouldn't even make sense. But if
+you look carefully, you see that the type of ``a`` is in fact ``↑s``, because ``s`` has been
+coerced from a term to the corresponding subtype ``{x : ℝ // x ∈ s}``.
+
 .. code-block::
+
+   import Mathlib.Tactic
+
+   example (s : Set ℝ) (a : s) : a = a := by
+     /-
+     s : Set ℝ
+     a : ↑s
+     ⊢ a = a
+     -/
+     rfl
+
+A term of the subtype ``{x : ℝ // x ∈ s}`` is a pair consisting of a term ``x : ℝ`` and a proof
+that ``x ∈ s``.
+
+
+
+
+.. code-block::
+
    import Mathlib.Geometry.Manifold.IsManifold.Basic
 
    variable
