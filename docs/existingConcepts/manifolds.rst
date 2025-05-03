@@ -1,6 +1,26 @@
+######################
+Manifolds in Mathlb (Parts)
+######################
 
-Manifolds in Mathlb
-===================
+
+****************************
+Chapters
+****************************
+
+Section
+===============
+
+Subsection
+-----------
+
+SubSubSection
+^^^^^^^^^^^^^^
+
+Paragraph
+""""""""""""
+
+
+
 
 We will discuss how manifolds can be described in Mathlib. To do this, let's dive straight in and define a manifold `M` in Mathlib. Don't worry, we will break down the various variables and type classes:
 
