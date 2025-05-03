@@ -21,25 +21,27 @@ Don't worry, we will break down the various variables and type classes:
 Let's go through the different variables that are defined here:
 
 ``(n : WithTop ℕ∞)``
-  is the a smoothness parameter. It can vary from `n = 0` for a topological manifold, i.e. no differentiable structure to `n = ∞` for a smooth manifold and `n = ω` for an analytic manifold.
+  is the a smoothness parameter. It can vary from ``n = 0`` for a topological manifold, i.e. no differentiable structure to `n = ∞` for a smooth manifold and `n = ω` for an analytic manifold.
 
 ``{𝕜 : Type*} [NontriviallyNormedField 𝕜]``
   is the field over which we work, i.e. the real or complex numbers. All statements about manifolds should work with an arbitrary nontrivial, normed field as long as possible since most concepts can be used for the reals and complex numbers.
 
-* `{H : Type*} [TopologicalSpace H]`
+``{H : Type*} [TopologicalSpace H]``
 
-* `{E : Type*} [NormedAddCommGroup E] [NormedSpace 𝕜 E]`
+``{E : Type*} [NormedAddCommGroup E] [NormedSpace 𝕜 E]``
 
-* `{I : ModelWithCorners 𝕜 E H}`
+``{I : ModelWithCorners 𝕜 E H}``
 
-* `{M : Type*} [TopologicalSpace M] [ChartedSpace H M] [IsManifold I n M] [CompleteSpace E]`
-
-To start with, `M` is a [`TopologicalSpace`](https://leanprover-community.github.io/mathlib4_docs/Mathlib/Topology/Defs/Basic.html#TopologicalSpace), which means we have a proper topology.
-The type class `ChartedSpace` defines an atlas on the topological space, i.e. a set of homoemorphisms from `M` to the model space such that the domains cover the whole space. This doesn't define a manifold structure yet. To do so, we need the type class `IsManifold`, which states that the coordinate transformations of the charted space form a groupoid of differentiable maps.
+``{M : Type*} [TopologicalSpace M] [ChartedSpace H M] [IsManifold I n M]``
+  To start with, ``M`` is a ` TopologicalSpace <https://leanprover-community.github.io/mathlib4_docs/Mathlib/Topology/Defs/Basic.html#TopologicalSpace>_`
 
 
+   [`TopologicalSpace`](https://leanprover-community.github.io/mathlib4_docs/Mathlib/Topology/Defs/Basic.html#TopologicalSpace), which means we have a proper topology.
 
-**TODO** Do we really need `[CompleteSpace E]`? It states that Cauchy sequences converge. Can this be deduced from the other type classes? How long can we ignore this?
+  The type class `ChartedSpace` defines an atlas on the topological space,
+  i.e. a set of homoemorphisms from `M` to the model space such that the domains cover the whole space.
+  This doesn't define a manifold structure yet. To do so, we need the type class `IsManifold`,
+  which states that the coordinate transformations of the charted space form a groupoid of differentiable maps.
 
 
 When working with several manifolds at the time, it's best to call them `M`, `M'`, or `M''` or use subscripts `M₁`, `M₂`, etc. and use the same convention for the underlying objects like `I`, `I'` and so on. Otherwise it's easy to loose track of the dependencies, causing errors.
