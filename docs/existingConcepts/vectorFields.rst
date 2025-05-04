@@ -1,11 +1,13 @@
 Vector fields on Manifolds
 ============================
 
-A vector field on a differentiable manifold is a differentiable map :math:`X:M \to TM` such that at each point :math:`x_0 \in M` the vector :math:`X(x_0)`lies in the tangent space :math:`T_{x_0}M` at this point. In Mathlib, this is expressed as a "pi function": ``X : Π (x : M), TangentSpace I x`` where ``I`` is the ``ModelWithCorners`` on which ``M`` is modelled.
+A vector field on a differentiable manifold is a differentiable map :math:`X:M \to TM` such that :math:`X_p \in T_pM` for each :math:`p \in M`. In Mathlib, this is expressed as a "pi function": ``X : Π (x : M), TangentSpace I x`` where ``I`` is the ``ModelWithCorners`` on which ``M`` is modelled.
 
 This is a general pattern for maps with values in the fibres of a bundle - similar to vector fields, sections in bundles are also expressed as pi functions, which we will see when we discuss vector bundles on differentiable manifolds.
 
-Since ``X`` is just a differentiable function between ``M`` and the total space of the tangent bundle, we can apply the API for differentiable functions. For example, to state that ``X`` is indeed differentiable at ``x : M``, we can **almost** write ``MDifferentiableAt I I.tangent X x``. There is a catch, though: the pi function ``X : Π (x : M), TangentSpace I x`` formally has values in the tangent space at a point and is not a function from ``M`` to the tangent bundle. But exactly this would be necessary to talk about differentiability.
+Since ``X`` is just a differentiable function between ``M`` and the total space of the tangent bundle, we can apply the API for differentiable functions. For example, to state that ``X`` is indeed differentiable at ``x : M``, we can **almost** write ``MDifferentiableAt I I.tangent X x`` (doesn't work).
+
+There is a catch, though: the pi function ``X : Π (x : M), TangentSpace I x`` formally has values in the tangent space at a point and is not a function from ``M`` to the tangent bundle. But exactly this would be necessary to talk about differentiability.
 
 Hence the correct formulation is ``MDifferentiableAt I I.tangent (fun (y : M) ↦ (X y : TangentBundle I M)) x``.
 
@@ -18,7 +20,7 @@ Please note that:
 Pullbacks of vector fields
 ---------------------------
 
-Given a local diffeomorphism :math:`f: M \to M'` between two manifolds, we can pull back a vector field :math:`X'` on :math:`M'` so that we get a new vector field :math:`X` on :math:`M`. Such a pullback is defined as :math:`X_p := df^{-1} \cdot Y_{f(p)}`, where :math:`df : TM \to TM'` is the Fréchet derivative of :math:`f`.
+Given a local diffeomorphism :math:`f: M \to M'` between two manifolds and a vector field  :math:`X'` on :math:`M'`, we can pull back this vector field so that we get a new vector field :math:`X` on :math:`M`. Such a pullback is defined as :math:`X_p := df^{-1} \cdot Y_{f(p)}`, where :math:`df : TM \to TM'` is the Fréchet derivative of :math:`f`. This pullback of a vector field is usually written as :math:`f^*X'`.
 
 In Mathlib, the definition of a pullback is as follows:
 
@@ -32,6 +34,9 @@ As you can see, ``V`` is a vector field on ``M'``, i.e. a pi function from the p
 This definition and various theorems on pullbacks of differentiable vector fields can be found in the file `Mathlib.Geometry.Manifold.VectorField.Pullback <https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/VectorField/Pullback.html>`_
 
 
-Pullbacks missing from Mathlib
+Other pullbacks
 ----------------------------------
 
+
+
+https://en.wikipedia.org/wiki/Pullback_(differential_geometry)
