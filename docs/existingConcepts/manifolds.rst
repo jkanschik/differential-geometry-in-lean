@@ -42,7 +42,7 @@ Let's go through the different variables that are defined here:
 
   The type class ``ChartedSpace`` defines an atlas on the topological space,
   i.e. a set of homoemorphisms from ``M`` to the model space such that the domains cover the whole space.
-  This doesn't define a manifold structure yet. To do so, we need the type class ``IsManifold``,
+  This doesn't define a manifold structure yet, because it doesn't define how the charts are "glued together". To do so, we need the type class ``IsManifold``,
   which states that the coordinate transformations of the charted space form a groupoid of differentiable maps.
 
 
