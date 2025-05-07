@@ -50,6 +50,33 @@ When working with several manifolds at the time, it's best to call them ``M``, `
 and use the same convention for the underlying objects like ``I``, ``I'`` and so on. Otherwise it's easy to loose track of the dependencies, causing errors.
 
 
+Charted spaces
+---------------------
+
+Charted spaces define an atlas on the topological space, i.e. a set of partial homeomorphisms from ``M`` to the model space ``H`` such that the domains cover the whole space. They are defined in file `Mathlib.Geometry.Manifold.ChartedSpace <https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/ChartedSpace.html>`_, see `ChartedSpace <https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/ChartedSpace.html#ChartedSpace>`_ for the actual definition.
+
+In many cases, you may not need to work with the charts themself because there is a growing API for differentiable manifolds which hide the details. However, even with the perfect API it sometimes becomes necessary to move from a manifold to the model space and proof a statement there.
+
+Also, note that the definition of the atlas and the definition of the smooth structure are separated in Mathlib: a charted space on its own has not information about smoothness at all. As an extreme example, any topological space can be considered as a charted space by choosing an atlas with only one element: the identity on the topological space. Only when smoothness is added using the type class ``IsManifold I n M``, conditions on the chart are imposed. This also means that the charts are maps from the charted space to the model space ``H`` - not the model vector space ``E``, which we use for the definition of a manifold.
+
+This additional step from ``H`` to ``E`` is done using "extended charts", which are defined in `ExtChartAt <https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/IsManifold/ExtChartAt.html>`_. "Extended" here refers to the fact that they extend the original charts (maps from ``M`` to the model ``H``) to ``E``.
+
+Hence the API for extended charts becomes very important if you want to move between the manifold and the vector space.
+To do so, you may need the following parts of the API (and please consult the linked documentation for more):
+
+`extChartAt I x <https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/IsManifold/ExtChartAt.html#extChartAt>`_
+  This is the extended chart at ``x``, mapping ``M`` to ``E``.
+
+
+
+
+
+`writtenInExtChartAt <https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/IsManifold/ExtChartAt.html#writtenInExtChartAt>`_
+
+
+
+
+
 The tangent space of manifolds
 --------------------------------
 
@@ -154,4 +181,16 @@ The following two definitions give the derivative of a function as a map of tang
 
 
 
+Curves on manifolds
+=====================
 
+
+Trick für die Ableitung:
+
+.. code-block::
+    lemma IsIntegralCurveAt.hasMFDerivAt (h : IsIntegralCurveAt γ v t₀) :
+        HasMFDerivAt 𝓘(ℝ, ℝ) I γ t₀ ((1 : ℝ →L[ℝ] ℝ).smulRight (v (γ t₀))) :=
+      have ⟨_, hs, h⟩ := isIntegralCurveAt_iff.mp h
+      h t₀ (mem_of_mem_nhds hs)
+
+Hier wird "1" als lineare Abbildung von R nach R aufgefasst und mit dem Vektor an :math:`\gamma(t_0)` multiplizert
