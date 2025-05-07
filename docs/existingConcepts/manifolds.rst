@@ -182,8 +182,7 @@ The following two definitions give the derivative of a function as a map of tang
 
 
 Curves on manifolds
-=====================
-
+---------------------------
 
 Trick für die Ableitung:
 

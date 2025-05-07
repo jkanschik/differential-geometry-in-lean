@@ -18,7 +18,7 @@ Please note that:
 
 
 Pullbacks of vector fields
-===========================
+-----------------------------
 
 Given a local diffeomorphism :math:`f: M \to M'` between two manifolds and a vector field  :math:`X'` on :math:`M'`, we can pull back this vector field so that we get a new vector field :math:`X` on :math:`M`. Such a pullback is defined as :math:`X_p := df^{-1} \cdot Y_{f(p)}`, where :math:`df : TM \to TM'` is the Fréchet derivative of :math:`f`. This pullback of a vector field is usually written as :math:`f^*X'`.
 
@@ -35,7 +35,7 @@ This definition and various theorems on pullbacks of differentiable vector field
 
 
 Lie brackets of vector fields
-================================
+----------------------------------
 
 If we have two differentiable vector fields :math:`X` and :math:`Y`on :math:`M`, the lie bracket of these vector fields can be defined as the unique vector field :math:`[X,Y]` which acts on the ring of differentiable functions as :math:`[X,Y] \cdot f = X \cdot Y \cdot f - Y \cdot X \cdot f`. There are other definitions of the Lie bracket, but this corresponds to the definition used by Mathlib.
 

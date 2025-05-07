@@ -26,9 +26,8 @@ Since Pythagoras, we know that :math:`a^2 + b^2 = c^2`.
 
 
 
-# (Linear) Connections on tensor bundles
-
-## Motivation
+Motivation
+------------------
 
 Consider a differentiable curve `γ` in `ℝ^n`: `γ : ℝ → ℝ^n` and its derivative `γ'`. When you do calculus on vector spaces, `γ'` is also a curve `γ' : ℝ → ℝ^n` in `ℝ^n`, for example interpreted as the velocity. You would easily talk about the higher order derivatives as well, for example the acceleration `γ'' : ℝ → ℝ^n`, and all derivatives have the same type `ℝ → ℝ^n`.
 
@@ -42,7 +41,8 @@ To resolve this, we introduce (linear) connections to allow us to differentiate 
 Also, we can repeat the process, creating a notion of higher order derivatives.
 
 
-## Definition of (linear) connections
+Definition of (linear) connections
+---------------------------------------
 
 In differential geometry, the (linear) connection is often defined as follows:
 
