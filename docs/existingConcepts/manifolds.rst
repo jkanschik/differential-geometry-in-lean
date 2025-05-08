@@ -72,16 +72,16 @@ Hence the API for extended charts becomes very important if you want to move bet
 To do so, you may need the following parts of the API (and please consult the linked documentation for more):
 
 `extChartAt I x <https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/IsManifold/ExtChartAt.html#extChartAt>`_
-  This is the extended chart at ``x``, mapping ``M`` to ``E``. It is of type `PartialEquiv <https://leanprover-community.github.io/mathlib4_docs/Mathlib/Logic/Equiv/PartialEquiv.html#PartialEquiv>`_, in contrast to `chartAt H x`, which is a `PartialHomeomorph <https://leanprover-community.github.io/mathlib4_docs/Mathlib/Topology/PartialHomeomorph.html#PartialHomeomorph>`_
+  This is the extended chart at ``x``, mapping ``M`` to ``E``. It is of type `PartialEquiv <https://leanprover-community.github.io/mathlib4_docs/Mathlib/Logic/Equiv/PartialEquiv.html#PartialEquiv>`_, in contrast to ``chartAt H x``, which is a `PartialHomeomorph <https://leanprover-community.github.io/mathlib4_docs/Mathlib/Topology/PartialHomeomorph.html#PartialHomeomorph>`_
 
 `(extChartAt I x).symm`
   This is the inverse function **TODO** Add the correct "I" and "x" here. How is it really used in an example?
 
 `(extChartAt I x).source`:
-  The domain of the extended chart (of course the same domain as the chart `(chartAt I x).source`).
+  The domain of the extended chart (of course the same domain as the chart ``(chartAt I x).source``).
 
 `(extChartAt I x).target`:
-  The codomain of the extended chart, which is a subset of `E` (the codomain of the chart `(chart I x).target` is a subset in the model space `H`)
+  The codomain of the extended chart, which is a subset of ``E`` (the codomain of the chart ``(chart I x).target`` is a subset in the model space ``H``)
 
 `writtenInExtChartAt I I' f x <https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/IsManifold/ExtChartAt.html#writtenInExtChartAt>`_
   For a function ``f : M → M'``, this conjugates ``f`` with the extended charts at ``x`` and ``f x``, so that we get a map in coordinates between the model vector spaces, i.e. a map ``E → E'``.
