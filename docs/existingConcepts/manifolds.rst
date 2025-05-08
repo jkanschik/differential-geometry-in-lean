@@ -27,13 +27,14 @@ Let's go through the different variables that are defined here:
   is the a smoothness parameter. It can vary from ``n = 0`` for a topological manifold, i.e. no differentiable structure to `n = ∞` for a smooth manifold and `n = ω` for an analytic manifold.
 
 ``{𝕜 : Type*} [NontriviallyNormedField 𝕜]``
-  is the field over which we work, i.e. the real or complex numbers. All statements about manifolds should work with an arbitrary nontrivial, normed field as long as possible since most concepts can be used for the reals and complex numbers.
+  is the field over which we work, i.e. the real or complex numbers, but also p-adic numbers. All statements about manifolds should work with an arbitrary, nontrivial, normed field as long as possible.
 
 ``{H : Type*} [TopologicalSpace H]``
 
 ``{E : Type*} [NormedAddCommGroup E] [NormedSpace 𝕜 E]``
 
 ``{I : ModelWithCorners 𝕜 E H}``
+  See https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/IsManifold/Basic.html#ModelWithCorners
 
 ``{M : Type*} [TopologicalSpace M] [ChartedSpace H M] [IsManifold I n M]``
   To start with, ``M`` is a
@@ -41,8 +42,10 @@ Let's go through the different variables that are defined here:
   which means we have a proper topology.
 
   The type class ``ChartedSpace`` defines an atlas on the topological space,
-  i.e. a set of homoemorphisms from ``M`` to the model space such that the domains cover the whole space.
-  This doesn't define a manifold structure yet, because it doesn't define how the charts are "glued together". To do so, we need the type class ``IsManifold``,
+  i.e. a set of (partial) homoemorphisms from ``M`` to the model space such that the domains cover the whole space.
+  This doesn't define a manifold structure yet, because it doesn't define how the charts are "glued together".
+
+  To do so, we need the type class ``IsManifold``,
   which states that the coordinate transformations of the charted space form a groupoid of differentiable maps.
 
 
@@ -57,7 +60,11 @@ Charted spaces define an atlas on the topological space, i.e. a set of partial h
 
 In many cases, you may not need to work with the charts themself because there is a growing API for differentiable manifolds which hide the details. However, even with the perfect API it sometimes becomes necessary to move from a manifold to the model space and proof a statement there.
 
-Also, note that the definition of the atlas and the definition of the smooth structure are separated in Mathlib: a charted space on its own has not information about smoothness at all. As an extreme example, any topological space can be considered as a charted space by choosing an atlas with only one element: the identity on the topological space. Only when smoothness is added using the type class ``IsManifold I n M``, conditions on the chart are imposed. This also means that the charts are maps from the charted space to the model space ``H`` - not the model vector space ``E``, which we use for the definition of a manifold.
+Also, note that the definition of the atlas and the definition of the smooth structure are separated in Mathlib: a charted space on its own has no information about smoothness at all. As an extreme example, any topological space can be considered as a charted space by choosing an atlas with only one element: the identity on the topological space.
+
+The type class `ModelWithCorners` adds conditions to the model space
+
+Only when smoothness is added using the type class ``IsManifold I n M``, conditions on the chart are imposed. This also means that the charts are maps from the charted space to the model space ``H`` - not the model vector space ``E``, which we use for the definition of a manifold.
 
 This additional step from ``H`` to ``E`` is done using "extended charts", which are defined in `ExtChartAt <https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/IsManifold/ExtChartAt.html>`_. "Extended" here refers to the fact that they extend the original charts (maps from ``M`` to the model ``H``) to ``E``.
 
@@ -65,13 +72,19 @@ Hence the API for extended charts becomes very important if you want to move bet
 To do so, you may need the following parts of the API (and please consult the linked documentation for more):
 
 `extChartAt I x <https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/IsManifold/ExtChartAt.html#extChartAt>`_
-  This is the extended chart at ``x``, mapping ``M`` to ``E``.
+  This is the extended chart at ``x``, mapping ``M`` to ``E``. It is of type `PartialEquiv <https://leanprover-community.github.io/mathlib4_docs/Mathlib/Logic/Equiv/PartialEquiv.html#PartialEquiv>`_, in contrast to `chartAt H x`, which is a `PartialHomeomorph <https://leanprover-community.github.io/mathlib4_docs/Mathlib/Topology/PartialHomeomorph.html#PartialHomeomorph>`_
 
+`(extChartAt I x).symm`
+  This is the inverse function **TODO** Add the correct "I" and "x" here. How is it really used in an example?
 
+ `(extChartAt I x).source`:
+  The domain of the extended chart (of course the same domain as the chart `(chartAt I x).source`).
 
+ `(extChartAt I x).target`:
+  The codomain of the extended chart, which is a subset of `E` (the codomain of the chart `(chart I x).target` is a subset in the model space `H`)
 
-
-`writtenInExtChartAt <https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/IsManifold/ExtChartAt.html#writtenInExtChartAt>`_
+`writtenInExtChartAt I I' f x <https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/IsManifold/ExtChartAt.html#writtenInExtChartAt>`_
+  For a function ``f : M → M'``, this conjugates ``f`` with the extended charts at ``x`` and ``f x``, so that we get a map in coordinates between the model vector spaces, i.e. a map ``E → E'``.
 
 
 
