@@ -77,10 +77,10 @@ To do so, you may need the following parts of the API (and please consult the li
 `(extChartAt I x).symm`
   This is the inverse function **TODO** Add the correct "I" and "x" here. How is it really used in an example?
 
- `(extChartAt I x).source`:
+`(extChartAt I x).source`:
   The domain of the extended chart (of course the same domain as the chart `(chartAt I x).source`).
 
- `(extChartAt I x).target`:
+`(extChartAt I x).target`:
   The codomain of the extended chart, which is a subset of `E` (the codomain of the chart `(chart I x).target` is a subset in the model space `H`)
 
 `writtenInExtChartAt I I' f x <https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/IsManifold/ExtChartAt.html#writtenInExtChartAt>`_
