@@ -52,7 +52,7 @@ theorem mlieBracketWithinAt_fmul_right
   mlieBracketWithin I V (fun y => f y • W y) s x =
     (mfderivWithin I 𝓘(𝕜, 𝕜) f s x) (V x) • (W x)  + (f • mlieBracketWithin I V W s) x := by
 
-  simp only [mlieBracketWithin_apply]
+  rw [mlieBracketWithin_apply]
   rw [mpullbackWithin_fmul]
 
   -- The function f in the preferred chart is differentiable:
@@ -79,6 +79,14 @@ theorem mlieBracketWithinAt_fmul_right
   rw [lieBracketWithin_fmul_right hfc hWc hsc]
   rw [ContinuousLinearMap.map_add]
 
+  rw [mlieBracketWithin_def]
+  simp
+  rw [mpullback_apply]
+  simp
+
+  rw [mpullbackWithin]
+  rw [mpullbackWithin]
+  simp
   sorry
 
 end VectorField
