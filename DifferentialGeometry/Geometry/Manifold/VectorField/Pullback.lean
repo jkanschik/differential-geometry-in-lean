@@ -45,7 +45,7 @@ variable {g : M' → 𝕜}
 
 lemma mpullbackWithin_fmul :
     mpullbackWithin I I' f (fun y => g y • V y) s =
-      (fun y => g (f y)) • mpullbackWithin I I' f V s := by
+      (fun y => (g ∘ f) y • (mpullbackWithin I I' f V s) y) := by
   ext x
   simp [mpullbackWithin_apply]
 

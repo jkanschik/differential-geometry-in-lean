@@ -1,1 +1,3 @@
 import DifferentialGeometry.Analysis.Calculus.VectorField
+import DifferentialGeometry.Geometry.Manifold.VectorField.LieBracket
+import DifferentialGeometry.Geometry.Manifold.VectorField.Pullback
